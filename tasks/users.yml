@@ -1,0 +1,41 @@
+---
+
+- include_vars: default-users.yml
+  when: users is not defined
+
+## USERS ##
+
+- name: individual user groups exist.
+  group:
+    state: present
+    name: "{{ item.name }}"
+  with_items: "{{ users }}"
+
+- name: each user exists.
+  user:
+    state: present
+    name: "{{ item.name }}"
+    group: "{{ item.name }}"
+    password: "{{ item.password }}"
+    shell: /bin/bash
+  with_items: "{{ users }}"
+
+
+## SUDOERS ##
+
+- name: sudoers have been granted admin permissions.
+  user:
+    state: present
+    name: "{{ item.name }}"
+    groups: sudo
+    append: yes
+  when: item.sudoer
+  with_items: "{{ users }}"
+
+- name: Double-check that non-sudoers don't have privs.
+  become: yes
+  include_tasks: sudoer-check.yml
+  vars:
+    username: "{{ item.name }}"
+  when: not item.sudoer
+  with_items: "{{ users }}"

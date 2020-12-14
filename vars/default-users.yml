@@ -1,0 +1,10 @@
+---
+
+users:
+  - name: "regular"
+    sudoer: no
+    password: $6$gfRmzdOBCvK$v2Vwwx5sPkLY15uIIhr4fbn7nkhn0R6aZvuivMN2RIepgPuUnf2vRTarYEDVWhPNSxoxpnpSloVkBRVin7qau0
+
+  - name: "admin"
+    sudoer: yes
+    password: $6$gfRmzdOBCvK$v2Vwwx5sPkLY15uIIhr4fbn7nkhn0R6aZvuivMN2RIepgPuUnf2vRTarYEDVWhPNSxoxpnpSloVkBRVin7qau0

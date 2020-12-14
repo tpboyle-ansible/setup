@@ -1,0 +1,11 @@
+---
+
+- name: utilities I want are installed.
+  package:
+    state: present
+    name:
+      - tmux
+      - vim
+      - net-tools    # i.e. nettstat
+      - tar
+      - unzip

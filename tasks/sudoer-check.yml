@@ -1,0 +1,9 @@
+---
+
+- name: Getting user {{ username }}'s groups...
+  shell: groups "{{ username }}"
+  register: user_groups
+
+- name: "user {{ username }} is not a sudoer."
+  command: "gpasswd -d {{ username }} sudo"
+  when: user_groups is defined and 'sudo' in user_groups.stdout

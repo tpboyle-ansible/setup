@@ -1,0 +1,15 @@
+---
+
+globals:
+  - name: "user.name"
+    value: "<FIXME>"
+  - name: "user.email"
+    value: "<FIXME>"
+
+aliases:
+  - short: co
+    long: "commit -m"
+  - short: ch
+    long: checkout
+  - short: s
+    long: status

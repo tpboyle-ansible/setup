@@ -1,0 +1,5 @@
+---
+galaxy_info:
+  author: "Patrick Boyle"
+  description: "Setup system, users, & common applications."
+dependencies: []

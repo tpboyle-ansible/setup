@@ -1,0 +1,6 @@
+---
+- name: Setup system, users, & common applications.
+  hosts: all
+  become: yes
+  tasks:
+    - include_tasks: tasks/users.yml
